@@ -1,4 +1,4 @@
-{% set version = "1.0.1" %}
+{% set version = "2.0.0" %}
 
 package:
   name: jupyterlab-markup
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/j/jupyterlab-markup/jupyterlab_markup-{{ version }}.tar.gz
-  sha256: 500fa4beb4332236361338a2f7219a9f5c299ddbe8178eb73587ec84ee7fb442
+  sha256: 58e0e19408881c9fc7e02672a29d0562b665a8f2ba434f90b89d23371a73047c
 
 build:
   number: 0
