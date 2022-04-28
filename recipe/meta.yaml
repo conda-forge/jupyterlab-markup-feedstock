@@ -19,8 +19,7 @@ build:
 
 requirements:
   host:
-    # ... `jupyterlab`, which is declared in pyproject.toml
-    - jupyter-packaging >=0.9,<1.0.0a0
+    - jupyter-packaging >=0.10.6,<2
     - pip
     - python >=3.7
   run:
@@ -44,7 +43,9 @@ about:
   home: https://github.com/agoose77/jupyterlab-markup
   summary: Extensible markdown rendering support in JupyterLab
   license: BSD-3-Clause
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - jupyterlab_markup/labextension/static/third-party-licenses.json
 
 extra:
   recipe-maintainers:
