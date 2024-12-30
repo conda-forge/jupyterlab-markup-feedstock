@@ -5,11 +5,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/j/jupyterlab-markup/jupyterlab_markup-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/j/jupyterlab-markup/jupyterlab_markup-{{ version }}.tar.gz
   sha256: 58e0e19408881c9fc7e02672a29d0562b665a8f2ba434f90b89d23371a73047c
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     # despite `PIP_NO_BUILD_ISOLATION=1`, unlink the `pyproject.toml`...
@@ -21,10 +21,10 @@ requirements:
   host:
     - jupyter-packaging >=0.10.6,<2
     - pip
-    - python >=3.7
+    - python {{ python_min }}
   run:
     - jupyterlab >=3.0,<4.0.0a0
-    - python >=3.7
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -38,6 +38,7 @@ test:
     - python -c "assert __import__('re').findall('jupyterlab-markup.*v{{ version }}.*enabled.*ok.*jupyterlab_markup', open('labextensions').read().lower())"
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/agoose77/jupyterlab-markup
