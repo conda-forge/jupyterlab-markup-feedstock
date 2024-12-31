@@ -15,13 +15,14 @@ build:
     # despite `PIP_NO_BUILD_ISOLATION=1`, unlink the `pyproject.toml`...
     - {{ PYTHON }} -c "__import__('pathlib').Path('pyproject.toml').unlink()"
     # ... so `--skip-npm` is honored, and we don't need `nodejs` and...
-    - {{ PYTHON }} -m pip install . --install-option="--skip-npm" . -vv
+    - {{ PYTHON }} -m pip install . -vv --global-option="--skip-npm" --no-deps --no-build-isolation --disable-pip-version-check
 
 requirements:
   host:
     - jupyter-packaging >=0.10.6,<2
     - pip
     - python {{ python_min }}
+    - setuptools
   run:
     - jupyterlab >=3.0,<4.0.0a0
     - python >={{ python_min }}
